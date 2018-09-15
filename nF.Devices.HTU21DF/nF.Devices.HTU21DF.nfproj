@@ -34,6 +34,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="HTU21D.pdf" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.CSharp.targets')" />

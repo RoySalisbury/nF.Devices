@@ -39,6 +39,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="DS3231.pdf" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -29,6 +29,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="HD44780.pdf" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
