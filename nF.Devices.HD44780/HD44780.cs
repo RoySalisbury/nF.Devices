@@ -57,10 +57,10 @@ namespace nF.Devices.HD44780
         //        public bool AutoScroll = false;
 
         private object _syncLock = new object();
-        private IGpioPin _rsPin;
-        private IGpioPin _rwPin;
-        private IGpioPin _enPin;
-        private IGpioPin[] _dataPins;
+        private GpioPin _rsPin;
+        private GpioPin _rwPin;
+        private GpioPin _enPin;
+        private GpioPin[] _dataPins;
 
         private HD44780(int cols, int rows, int charSize = LCD_5x8DOTS)
         {
@@ -76,7 +76,7 @@ namespace nF.Devices.HD44780
                 this._displayFunction |= LCD_1LINE;
         }
 
-        public static HD44780 CreateDevice(IGpioPin rsPin, IGpioPin rwPin, IGpioPin enPin, IGpioPin d4Pin, IGpioPin d5Pin, IGpioPin d6Pin, IGpioPin d7Pin, int cols, int rows, int charSize = LCD_5x8DOTS)
+        public static HD44780 CreateDevice(GpioPin rsPin, GpioPin rwPin, GpioPin enPin, GpioPin d4Pin, GpioPin d5Pin, GpioPin d6Pin, GpioPin d7Pin, int cols, int rows, int charSize = LCD_5x8DOTS)
         {
             var instance = new HD44780(cols, rows, charSize);
             instance._displayFunction |= LCD_4BITMODE;
@@ -93,7 +93,7 @@ namespace nF.Devices.HD44780
             instance._enPin.SetDriveMode(GpioPinDriveMode.Output);
             instance._enPin.Write(GpioPinValue.Low);
 
-            instance._dataPins = new IGpioPin[] { d4Pin, d5Pin, d6Pin, d7Pin };
+            instance._dataPins = new GpioPin[] { d4Pin, d5Pin, d6Pin, d7Pin };
             for (int i = 0; i < instance._dataPins.Length; i++)
             {
                 instance._dataPins[i].SetDriveMode(GpioPinDriveMode.Output);

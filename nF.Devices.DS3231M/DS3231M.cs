@@ -28,9 +28,9 @@ namespace nF.Devices.DS3231M
         private const byte DS3231_OSF = 0x80;
 
         private readonly I2cDevice _i2cDevice;
-        private IGpioPin _alarmPin;
+        private GpioPin _alarmPin;
 
-        private DS3231M(I2cDevice i2cDevice, IGpioPin alarmPin = null) 
+        private DS3231M(I2cDevice i2cDevice, GpioPin alarmPin = null) 
         {
             _i2cDevice = i2cDevice;
             _alarmPin = alarmPin;
@@ -51,7 +51,7 @@ namespace nF.Devices.DS3231M
             this.AlarmSignaled?.Invoke(this, args);
         }
 
-        public static DS3231M CreateDevice(string i2cBus, byte hardwareAddress = BASE_ADDRESS, I2cBusSpeed busSpeed = I2cBusSpeed.StandardMode, I2cSharingMode sharingMode = I2cSharingMode.Exclusive, IGpioPin alarmPin = null)
+        public static DS3231M CreateDevice(string i2cBus, byte hardwareAddress = BASE_ADDRESS, I2cBusSpeed busSpeed = I2cBusSpeed.StandardMode, I2cSharingMode sharingMode = I2cSharingMode.Exclusive, GpioPin alarmPin = null)
         {
             // Create the I2c connection settings instance.
             I2cConnectionSettings settings = new I2cConnectionSettings(hardwareAddress) { BusSpeed = busSpeed, SharingMode = sharingMode };
