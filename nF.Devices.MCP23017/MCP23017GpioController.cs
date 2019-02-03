@@ -304,8 +304,7 @@ namespace nF.Devices.MCP23017
                     // We can now fire the individual PORT event handler.
                     if (this._gpioPin[i] != null)
                     {
-                        // TODO: Until the EventArgs ctor is marked public, we cant use the events.
-                        //this._gpioPin[i].DoValueChangedEvent(new GpioPinValueChangedEventArgs(capture ? GpioPinEdge.FallingEdge : GpioPinEdge.RisingEdge));
+                        this._gpioPin[i].DoValueChangedEvent(new GpioPinValueChangedEventArgs(capture ? GpioPinEdge.FallingEdge : GpioPinEdge.RisingEdge));
                     }
                 }
             }
@@ -325,8 +324,7 @@ namespace nF.Devices.MCP23017
                     // We can now fire the individual PORT event handler.
                     if (this._gpioPin[i+8] != null)
                     {
-                        // TODO: Until the EventArgs ctor is marked public, we cant use the events.
-                        //this._gpioPin[i+8].DoValueChangedEvent(new GpioPinValueChangedEventArgs(capture ? GpioPinEdge.FallingEdge : GpioPinEdge.RisingEdge));
+                        this._gpioPin[i+8].DoValueChangedEvent(new GpioPinValueChangedEventArgs(capture ? GpioPinEdge.FallingEdge : GpioPinEdge.RisingEdge));
                     }
                 }
             }
